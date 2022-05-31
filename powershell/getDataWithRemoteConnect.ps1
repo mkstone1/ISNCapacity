@@ -21,8 +21,8 @@ begin{
         $true    
     }
 
-    $User = 'administrator'
-    $Password = ConvertTo-SecureString "ISNzaq123" -AsPlainText -Force 
+    $User = 'XXXXXXXX'
+    $Password = ConvertTo-SecureString "XXXXXXX" -AsPlainText -Force 
     $ComputerList = Get-Content -Path 'C:\Users\marks\IdeaProjects\ISNCapacity\staticinfo\ServerList.txt'
     
 }
