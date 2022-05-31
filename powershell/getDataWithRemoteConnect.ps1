@@ -21,7 +21,7 @@ begin{
         $true    
     }
 
-    $User = 'XXXXXXXX'
+    $User = 'XXXXXXXXX'
     $Password = ConvertTo-SecureString "XXXXXXX" -AsPlainText -Force 
     $ComputerList = Get-Content -Path 'C:\Users\marks\IdeaProjects\ISNCapacity\staticinfo\ServerList.txt'
     
