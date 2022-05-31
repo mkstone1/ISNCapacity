@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VM</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/mainContent.css">
+    <link rel="stylesheet" href="/css/VM.css">
+</head>
+<body>
+
+<div th:replace="/navbar :: navbar">
+</div>
+<div class="mainContent">
+    <h2 th:text="${vm.vmName}"></h2>
+    <div>
+        <h3>State is </h3>
+        <p th:text="${vm.state}"></p>
+    </div>
+
+    <div>
+        <h3>CPU amount is</h3>
+        <p th:text="${vm.CPUs}"></p>
+    </div>
+
+    <div>
+        <h3>RAM Info</h3>
+        <p class="bolded">Has dynamic memory </p>
+        <p th:text="${vm.dynamicRam}"></p>
+        <p class="bolded">Max RAM </p>
+        <p th:text="${vm.maxRAM}"></p>
+        <p class="bolded">Min RAM</p>
+        <p th:text ="${vm.minRAM}"></p>
+    </div>
+    <div>
+        <h3>Disk info</h3>
+        <table>
+            <thead>
+            <th>Disk name</th>
+            <th>Size</th>
+            <th>Unbind disk</th>
+
+            </thead>
+
+            <tbody>
+            <tr th:each="disk:${disks}">
+                <td class="rowText" th:text="${disk.diskName}"></td>
+                <td class="rowText" th:text="${disk.fileSize}" style="width: 20%"></td>
+                <td class="rowText"><a th:href="${'/unbindDiskFromVM?diskID='+disk.diskID+'&vmID='+vm.vmID}"> Unbind
+                    Disk </a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</body>
+</html>

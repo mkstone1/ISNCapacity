@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create hypervisor</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/mainContent.css">
+    <link rel="stylesheet" href="/css/inputInfo.css">
+</head>
+<body>
+
+
+<div th:replace="/navbar :: navbar">
+</div>
+<div class="mainContent">
+    <h2>Create user</h2>
+    <div class="flex-box-create-user">
+
+
+        <form method="POST" action="/CreateHypervisor">
+            <div class = "inputInfo">
+                <label for="hypervisorName" >Hypervisor name</label>
+                <input type="text" id="hypervisorName" name="hypervisorName" size="50">
+
+                <label for="RAM">Total RAM in GB</label>
+                <input type="number" id="RAM" name="RAM" size="50">
+
+
+                <label for="storageSpace">Total storage space on D Drive in TB</label>
+                <input type="number" id="storageSpace" name="storageSpace" size="50">
+            </div>
+            <div>
+                <input type="submit" value="Create Hypervisor">
+            </div>
+
+
+        </form>
+
+    </div>
+</div>
+</body>
+</html>

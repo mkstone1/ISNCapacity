@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chooseVM</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/mainContent.css">
+</head>
+<body>
+
+<div th:replace="/navbar :: navbar">
+</div>
+
+
+<div class="mainContent">
+    <h2 th:text="${hv.hypervisorName}"></h2>
+
+
+    <form action="/LinkVmToCustomer" method="POST">
+        <label for="vm">Choose vm</label>
+        <select name="customer" id="customer">
+            <option th:text="${customer}"></option>
+        </select>
+        <select name="hv" id="hv">
+            <option th:text="${hv.hypervisorName}"></option>
+        </select>
+        <select name="vm" id="vm">
+            <option th:each="vm: ${vm}">
+                <span th:text="${vm.vmName}"></span>
+            </option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+</form>
+</body>
+</html>

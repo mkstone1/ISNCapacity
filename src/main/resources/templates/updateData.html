@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>data update</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/mainContent.css">
+</head>
+<body>
+
+<div th:replace="/navbar :: navbar">
+</div>
+<div class ="mainContent">
+<h2>WARNING!!</h2>
+<p>Do not press unless authorized by Mark or Greg</p>
+<p>Will take atleast 10 minutes</p>
+<form action="/updateData" method="post">
+    <input type="submit" name="upvote" value="Update data" />
+</form>
+</div>
+</body>
+</html>

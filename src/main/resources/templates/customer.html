@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer</title>
+    <link rel="stylesheet" href="/css/customer.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/mainContent.css">
+</head>
+<body>
+<div th:replace="/navbar :: navbar">
+</div>
+
+<div class="mainContent">
+<h2 th:text="${customer.name}"></h2>
+
+
+<a th:href="${'/ChooseHypervisorForAdd?name='+customer.name}">
+<h2>Add VMs to this customer</h2>
+</a>
+
+<h2>All VMs for this customer</h2>
+<div>
+    <table>
+        <thead>
+        <th>Name</th>
+        <th>State</th>
+        <th>More info</th>
+        <th>Remove VM from customer</th>
+
+        </thead>
+
+        <tbody>
+        <tr th:each="vm: ${vm}">
+            <td th:text="${vm.vmName}" ></td>
+            <td th:text="${vm.state}"  class="rowText"></td>
+            <td  class="rowText"><a th:href="${'/VM?ID='+vm.vmID}" > More info </a></td>
+            <td  class="rowText"><a th:href="${'/RemoveVmFromCustomer?vmID=' +vm.vmID + '&name='+customer.name}"> Remove VM</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+
+
+</body>
+</html>

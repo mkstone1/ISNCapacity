@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All customers</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/mainContent.css">
+    <link rel="stylesheet" href="/css/customer.css">
+</head>
+<body>
+
+<div th:replace="/navbar :: navbar">
+</div>
+
+<div class="mainContent">
+    <h2>All Customers</h2>
+
+    <table>
+        <thead>
+        <th>Cusomter name</th>
+        <th>Delete customer</th>
+
+        </thead>
+
+        <tbody>
+        <tr th:each="cust: ${cust}">
+            <td class="rowText">
+                <a th:href="${'/Customer?name='+cust.name}">
+                    <span th:text="${cust.name}"> </span>
+                </a>
+            </td>
+            <td class="rowText"><a th:href="${'/DeleteCustomer?name='+cust.name}"> Delete customer </a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <h2><a href="/CreateCustomer?error=false"> Create new customer</a></h2>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create customer</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/mainContent.css">
+    <link rel="stylesheet" href="/css/inputInfo.css">
+</head>
+<body>
+
+<div th:replace="/navbar :: navbar">
+</div>
+
+<div class="mainContent">
+    <h2>Create user</h2>
+    <div class="flex-box-create-user">
+
+        <form method="POST" action="/createCustomer">
+            <div class="inputInfo">
+                <label for="customerName">Customer name</label>
+                <input type="text" id="customerName" name="customerName" size="50">
+
+
+                <label for="abbreviation">Customer abbreviation (3 letters)</label>
+                <input type="text" id="abbreviation" name="abbreviation" size="50">
+
+                <p th:text="${er}"></p>
+            </div>
+            <div>
+                <input type="submit" value="Add customer">
+            </div>
+
+
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>

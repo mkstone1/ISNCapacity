@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>LinkDisk</title>
+  <link rel="stylesheet" href="/css/navbar.css">
+  <link rel="stylesheet" href="/css/mainContent.css">
+</head>
+<body>
+<div th:replace="/navbar :: navbar">
+</div>
+
+<div class ="mainContent">
+<h1 th:text="${disk.diskName}"></h1>
+
+<p>Which vm does this disk belong to</p>
+
+<form action="/linkDisk" method="POST">
+  <label for="vm">Choose a VM</label>
+  <select name = "hv" id="hv">
+    <option th:text="${hv.hypervisorName}"></option>
+  </select>
+  <select name = "disk" id="disk">
+    <option th:text="${disk.diskName}"></option>
+  </select>
+  <select  name="vm" id="vm">
+    <option  th:each="vm: ${vm}">
+    <span  th:text="${vm.vmName}"></span>
+    </option>
+  </select>
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/hypervisor.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/mainContent.css">
+</head>
+<body>
+<div th:replace="/navbar :: navbar">
+</div>
+
+<div class="mainContent">
+<div>
+    <div>
+        <h2>VMs on hypervisor</h2>
+        <div>
+            <table>
+                <thead>
+                <th>Name</th>
+                <th>State</th>
+                <th>CPUs</th>
+                <th>RAM in MB</th>
+                <th>More info</th>
+
+                </thead>
+
+                <tbody>
+                <tr th:each="vm: ${vm}">
+                    <td class="rowText" th:text="${vm.vmName}" ></td>
+                    <td class="rowText" th:text="${vm.state}" style="width: 20%"></td>
+                    <td class="rowText" th:text="${vm.CPUs}" style="width: 20%"></td>
+                    <td class="rowText" th:text="${vm.maxRAM}" style="width: 20%"></td>
+                    <td class="rowText"><a th:href="${'/VM?ID='+vm.vmID}" style="width: 20%"> More info </a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <h2>Unassigned disk on Hypervisor</h2>
+            <div>
+                <p th:each="disk: ${disk}">
+                    <a th:href="${'/DiskToVM?name='+hv.hypervisorName + '&diskID=' + disk.diskID}">
+                        <span th:text="${disk.path}"> </span>
+                    </a>
+
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</div>
+</body>
+</html>

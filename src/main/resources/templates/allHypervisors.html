@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All hypervisors</title>
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/mainContent.css">
+</head>
+<body>
+<div th:replace="/navbar :: navbar">
+</div>
+
+<div class="mainContent">
+    <h2>All hypervisors</h2>
+    <div>
+        <p th:each="hv: ${hv}">
+            <a th:href="${'/hypervisor?name='+hv.hypervisorName}"> <span th:text="${hv.hypervisorName}"> </span> </a>
+        </p>
+    </div>
+
+    <div>
+        <h2><a href="/CreateHypervisor"> Create Hypervisor</a></h2>
+    </div>
+</div>
+
+
+</body>
+</html>
